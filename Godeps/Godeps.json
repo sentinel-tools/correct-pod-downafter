@@ -1,0 +1,23 @@
+{
+	"ImportPath": "github.com/sentinel-tools/correct-pod-downafter",
+	"GoVersion": "go1.4",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/cli",
+			"Comment": "1.2.0-187-gc31a7975863e7810c92e2e28",
+			"Rev": "c31a7975863e7810c92e2e288a9ab074f9a88f29"
+		},
+		{
+			"ImportPath": "github.com/therealbill/libredis/client",
+			"Rev": "089b27b7a512adc4bada53d767394be7321057c0"
+		},
+		{
+			"ImportPath": "github.com/therealbill/libredis/info",
+			"Rev": "089b27b7a512adc4bada53d767394be7321057c0"
+		},
+		{
+			"ImportPath": "github.com/therealbill/libredis/structures",
+			"Rev": "089b27b7a512adc4bada53d767394be7321057c0"
+		}
+	]
+}
