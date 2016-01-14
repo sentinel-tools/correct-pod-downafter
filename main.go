@@ -33,7 +33,14 @@ func main() {
 		cli.StringFlag{
 			Name:   "targetvalue,t",
 			Usage:  "The value to set down-after-milliseconds to",
-			EnvVar: "3000",
+			Value:  "3000",
+			EnvVar: "CD_TARGET",
+		},
+		cli.IntFlag{
+			Name:   "ignore,i",
+			Usage:  "Skip over pods with this s their down-after-milliseconds value",
+			Value:  345600000,
+			EnvVar: "CD_IGNORE",
 		},
 		cli.BoolFlag{
 			Name:  "commit,c",
@@ -71,7 +78,7 @@ func setTimeout(c *cli.Context) {
 		defaults := 0
 		corrects := 0
 		others := 0
-		resizes := 0
+		ignores := 0
 		itarget, _ := strconv.Atoi(target)
 		for _, pod := range spods {
 			if c.Bool("all") {
@@ -106,10 +113,10 @@ func setTimeout(c *cli.Context) {
 						log.Printf("[%s] Updating pod %s to %s from default", s, pod.Name, target)
 						_ = conn.SentinelSetString(pod.Name, "down-after-milliseconds", target)
 					}
-				case 345600000:
-					resizes++
+				case c.Int("ignore"):
+					ignores++
 					if c.Bool("verbose") {
-						log.Printf("[%s] Pod %s has resize value", s, pod.Name)
+						log.Printf("[%s] Pod %s has ignores value", s, pod.Name)
 					}
 				default:
 					others++
@@ -117,7 +124,7 @@ func setTimeout(c *cli.Context) {
 				}
 			}
 		}
-		log.Printf("[%s] Correct: %d Default: %d Resizes: %d Other: %d", s, corrects, defaults, resizes, others)
+		log.Printf("[%s] Correct: %d Default: %d Resizes: %d Other: %d", s, corrects, defaults, ignores, others)
 	}
 
 }
