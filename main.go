@@ -13,13 +13,15 @@ import (
 var (
 	app           *cli.App
 	sentinel_list cli.StringSlice
+	Version       string
 )
 
 func main() {
+
 	app = cli.NewApp()
 	app.Name = "correct-pod-configs"
 	app.Usage = "Correct all pods' down-after-millisecond value in a given constellation"
-	app.Version = "1.1"
+	app.Version = Version
 	app.EnableBashCompletion = true
 	author := cli.Author{Name: "Bill Anderson", Email: "bill.anderson@rackspace.com"}
 	app.Authors = append(app.Authors, author)
