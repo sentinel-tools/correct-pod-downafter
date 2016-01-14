@@ -1,3 +1,7 @@
+[![Build
+Status](https://travis-ci.org/sentinel-tools/correct-pod-downafter.svg?branch=master)](https://travis-ci.org/sentinel-tools/correct-pod-downafter)
+
+
 # Purpose
 
 To connect to a given list of Redis Sentinels, and set the
