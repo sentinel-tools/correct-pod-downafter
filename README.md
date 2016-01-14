@@ -8,8 +8,8 @@ just any value.
 
 # Usage
 
-Arguments:
-  -s sentinel IP. Repeat for each sentinel to connect to.
-  -c commit. By default it will only report them. Pass this flag to
-		actually make the change
-  -a make the change on ALL pods regardless of current value.
+| Argument | Description |
+|----------|-------------|
+|-s| sentinel IP. Repeat for each sentinel to connect to.|
+|-c| commit. By default it will only report them. Pass this flag to actually make the change|
+|-a| make the change on ALL pods regardless of current value.|
